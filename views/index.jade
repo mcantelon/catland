@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  .content
+    canvas#grout
+  script
+    window.onload = function() {
+      var catland = new Catland();
+      catland.init();
+    }
