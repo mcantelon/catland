@@ -26,39 +26,20 @@ Catland.prototype = {
       'canvas_id': 'grout'
     });
 
-    /*
-    // spawn cats
-    for(var i = 0; i < 10; i++) {
-      var cat = this.spawn();
-    }
-    */
-
     // draw everything
     this.grout.draw_all()
-  },
-
-  randomCatCharacteristics: function() {
-    var catColours = [
-      'brown',
-      'black'
-    ];
-
-    return {
-      'offset_x': Math.floor(Math.random(1) * (this.widthInTiles - this.catWidthInTiles)),
-      'offset_y': Math.floor(Math.random(1) * (this.heightInTiles - this.catHeightInTiles)),
-      'colour': catColours[Math.floor(Math.random(1) * catColours.length)]
-    };
   },
 
   spawn: function(characteristics) {
     this.catId++;
 
-    var cat = this.grout.sprite(
-      this.catId, {
-        'tile_width': this.tileSize,
-        'tile_height': this.tileSize
-      }
-    );
+    var name = 'cat_' + this.catId,
+        cat = this.grout.sprite(
+          name, {
+            'tile_width': this.tileSize,
+            'tile_height': this.tileSize
+          }
+        );
 
     cat.make_sprite(" \
       A...AA \
@@ -70,6 +51,6 @@ Catland.prototype = {
     cat.offset_x = characteristics.offset_x;
     cat.offset_y = characteristics.offset_y;
 
-    return cat;
+    return name;
   }
 }
