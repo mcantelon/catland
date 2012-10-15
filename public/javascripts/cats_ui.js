@@ -7,9 +7,12 @@ window.onload = function() {
 
   // set up key handling
   catland.grout.keypress(function(key) {
+console.log(key);
     var keycodeDirection = {
       37: 'left',
-      39: 'right'
+      38: 'up',
+      39: 'right',
+      40: 'down'
     }
 
     if (keycodeDirection[key] != undefined) {
@@ -29,9 +32,9 @@ window.onload = function() {
   });
 
   socket.on('moveCat', function(moveSpec) {
-console.log(catland.grout.sprites);
-    catland.grout.sprites[moveSpec.cat_id].offset_x = moveSpec.offset_x;
-    catland.grout.sprites[moveSpec.cat_id].offset_y = moveSpec.offset_y;
+    var catName = catNames[moveSpec.cat_id];
+    catland.grout.sprites[catName].offset_x = moveSpec.offset_x;
+    catland.grout.sprites[catName].offset_y = moveSpec.offset_y;
     catland.grout.draw_all();
   });
 }

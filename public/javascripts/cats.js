@@ -12,7 +12,7 @@ Catland.prototype = {
   init: function() {
     // determine sizing
     this.catWidthInTiles = 6;
-    this.catHeightInTiles = 5;
+    this.catHeightInTiles = 4;
     this.widthInTiles = this.catWidthInTiles * 15;
     this.heightInTiles = this.catHeightInTiles * 8;
 
