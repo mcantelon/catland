@@ -26,10 +26,12 @@ Catland.prototype = {
       'canvas_id': 'grout'
     });
 
+    /*
     // spawn cats
     for(var i = 0; i < 10; i++) {
       var cat = this.spawn();
     }
+    */
 
     // draw everything
     this.grout.draw_all()
@@ -48,9 +50,7 @@ Catland.prototype = {
     };
   },
 
-  spawn: function() {
-    var characteristics = this.randomCatCharacteristics();
-
+  spawn: function(characteristics) {
     this.catId++;
 
     var cat = this.grout.sprite(
